@@ -1,0 +1,5 @@
+check process proftpd with pidfile /var/run/proftpd.pid
+    start program = "/usr/sbin/service proftpd start"
+    stop program  = "/usr/sbin/service proftpd stop"
+    if failed port 21 protocol ftp then restart
+    if 5 restarts within 5 cycles then timeout
